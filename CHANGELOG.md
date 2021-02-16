@@ -4,6 +4,9 @@ All notable changes to `rollup-plugin-scss` will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Add `codeProcessor` option @foxless
+
 ## [2.6.1] - 2020-10-01
 ### Updated
 - Move node-sass to optionalDependencies @weizhenye
