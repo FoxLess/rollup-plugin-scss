@@ -77,7 +77,7 @@ export default function css (options = {}) {
       // When output is disabled, the stylesheet is exported as a string
       if (options.output === false) {
         return Promise.resolve(compileToCSS(code)).then(css => ({
-          code: typeof options.codeProcessor === 'function' ? options.codeProcessor(css) : 'export default ' + JSON.stringify(css),
+          code: typeof options.codeProcessor === 'function' ? options.codeProcessor(css, id) : 'export default ' + JSON.stringify(css),
           map: { mappings: '' }
         }))
       }
