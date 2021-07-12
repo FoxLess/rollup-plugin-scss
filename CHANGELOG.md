@@ -4,6 +4,9 @@ All notable changes to `rollup-plugin-scss` will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+- Add `outputProcessor` option @foxless
+
 ## [3.0.0] - 2021-06-29
 
 ### Added

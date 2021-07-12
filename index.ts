@@ -17,6 +17,7 @@ export interface CSSPluginOptions {
     map: string,
     styles: Styles
   ) => CSS | Promise<CSS> | PostCSSProcessor
+  outputProcessor?: (css: string, id: string) => string | Promise<string>
   sass?: SassRenderer
   sourceMap?: boolean
   verbose?: boolean
@@ -240,7 +241,7 @@ export default function scss(options: CSSPluginOptions = {}): Plugin {
         // When output is disabled, the stylesheet is exported as a string
         const { css, map } = await compileToCSS(code)
         return {
-          code: 'export default ' + JSON.stringify(css),
+          code: typeof options.outputProcessor === 'function' ? await options.outputProcessor(css, id) : 'export default ' + JSON.stringify(css),
           map: { mappings: '' }
         }
       }

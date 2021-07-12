@@ -109,6 +109,9 @@ scss({
   processor: css =>
     css.replace('/*date*/', '/* ' + new Date().toJSON() + ' */'),
 
+  // Process resulting output code (only for output: false)
+  outputProcessor: css => 'export default ' + JSON.stringify(css),
+
   // Log filename and size of generated CSS files (default: true)
   verbose: true
 
